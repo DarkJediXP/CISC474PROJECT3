@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DomainModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="2.0.0.0" name="EntitiesModel1" namespace="Core" showPropertiesCompartment="true" xmlns="http://www.telerik.com/ORM">
+  <orm:orm name="EntitiesModel1" backend="mssql" default-schema="dbo" xmlns:orm="http://tempuri.org/ORM">
+    <orm:namespace name="Core" default="true">
+      <orm:class name="User" uniqueId="ccdaf488-58fb-4f98-8867-d6ed759522f5">
+        <orm:table name="Users" />
+        <orm:identity>
+          <orm:key-generator name="autoinc">
+            <orm:key-generator-member property-name="User_id" />
+          </orm:key-generator>
+          <orm:single-field field-name="_user_id" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="_user_id" property="User_id" behavior="readwrite" uniqueId="eae46eb3-263f-4248-9e47-7e60c718d693" type="System.Int64">
+          <orm:column name="user_id" sql-type="bigint" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int64" />
+        </orm:field>
+        <orm:field name="_username" property="Username" behavior="readwrite" uniqueId="932808d9-1c82-4eb7-8ce8-072142fd3e82" type="System.String">
+          <orm:column name="username" sql-type="nvarchar" nullable="false" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_password" property="Password" behavior="readwrite" uniqueId="74bf8fba-0a11-4d54-a93c-2f5afa0f8503" type="System.String">
+          <orm:column name="password" sql-type="nvarchar" nullable="false" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="_active" property="Active" behavior="readwrite" uniqueId="16448d10-ee4f-42b1-9cc4-63102c2184b2" type="System.Boolean">
+          <orm:column name="active" sql-type="bit" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Bit" />
+        </orm:field>
+      </orm:class>
+      <orm:class name="Chat" uniqueId="c3d596e6-7b11-42c0-97c4-543ad92a61c5">
+        <orm:table name="Chats" />
+        <orm:identity>
+          <orm:key-generator name="autoinc">
+            <orm:key-generator-member property-name="Chat_id" />
+          </orm:key-generator>
+          <orm:single-field field-name="_chat_id" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="_chat_id" property="Chat_id" behavior="readwrite" uniqueId="d2525307-df47-4e26-9001-9f59fd283f5f" type="System.Int64">
+          <orm:column name="chat_id" sql-type="bigint" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int64" />
+        </orm:field>
+        <orm:field name="_name" property="Name" behavior="readwrite" uniqueId="42b66bcf-b8c1-40ca-aac7-0aeca56f916c" type="System.String">
+          <orm:column name="name" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="_message" property="Message" behavior="readwrite" uniqueId="666de1c8-6e63-450c-8a8b-291d2173efeb" type="System.String">
+          <orm:column name="message" sql-type="text" nullable="true" length="0" scale="0" ado-type="StringInfiniteLength" />
+        </orm:field>
+        <orm:field name="_time" property="Time" behavior="readwrite" uniqueId="90c29e95-1bf3-45e5-b39a-64bd65e3591f" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="time" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        </orm:field>
+      </orm:class>
+    </orm:namespace>
+    <orm:schema schema="">
+      <orm:table name="Users">
+        <orm:column name="user_id" sql-type="bigint" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int64" />
+        <orm:column name="username" sql-type="nvarchar" nullable="false" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="password" sql-type="nvarchar" nullable="false" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="active" sql-type="bit" nullable="false" length="0" scale="0" has-default-value="true" ado-type="Bit" />
+      </orm:table>
+      <orm:table name="Chats">
+        <orm:column name="chat_id" sql-type="bigint" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int64" />
+        <orm:column name="name" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="StringVariableLength" />
+        <orm:column name="message" sql-type="text" nullable="true" length="0" scale="0" ado-type="StringInfiniteLength" />
+        <orm:column name="time" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+      </orm:table>
+    </orm:schema>
+    <orm:relational-naming-settings>
+      <orm:source-strategy>Property</orm:source-strategy>
+      <orm:remove-camel-case>False</orm:remove-camel-case>
+    </orm:relational-naming-settings>
+  </orm:orm>
+  <ModelSettings xmlns="">
+    <AppConfigConnectionPropertyName>CISXC474Connection</AppConfigConnectionPropertyName>
+    <AppConfigConnectionString>data source=frosty;initial catalog=CISXC474;user id=DemoUser;password=diaper</AppConfigConnectionString>
+    <InitialCatalog>CISXC474</InitialCatalog>
+    <NamingSettings>
+      <ClassRules>
+        <CaseMode>PascalCase</CaseMode>
+        <PluralizationMode>Singularize</PluralizationMode>
+      </ClassRules>
+      <FieldRules>
+        <AddPrefix>_</AddPrefix>
+        <CaseMode>CamelCase</CaseMode>
+      </FieldRules>
+      <PropertyRules>
+        <CaseMode>PascalCase</CaseMode>
+      </PropertyRules>
+      <NavigationPropertyRules />
+    </NamingSettings>
+    <CodeGenerationSettings>
+      <MappingDefinitionType>Xml</MappingDefinitionType>
+    </CodeGenerationSettings>
+    <SchemaUpdateSettings />
+    <BackendConfigurationSettings>
+      <BackendConfiguration>
+        <Backend>MsSql</Backend>
+        <ProviderName>System.Data.SqlClient</ProviderName>
+      </BackendConfiguration>
+    </BackendConfigurationSettings>
+  </ModelSettings>
+  <Types>
+    <DomainClass Id="ccdaf488-58fb-4f98-8867-d6ed759522f5" name="User" namespace="Core" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true" identityMechanismMember="User_id">
+      <Property Id="eae46eb3-263f-4248-9e47-7e60c718d693" name="User_id" type="Int64" label="User_id : Int64" kind="Persistent" identity="true" fieldName="_user_id" />
+      <Property Id="16448d10-ee4f-42b1-9cc4-63102c2184b2" name="Active" type="Boolean" label="Active : Boolean" kind="Persistent" fieldName="_active" />
+      <Property Id="74bf8fba-0a11-4d54-a93c-2f5afa0f8503" name="Password" label="Password : String" kind="Persistent" fieldName="_password" />
+      <Property Id="932808d9-1c82-4eb7-8ce8-072142fd3e82" name="Username" label="Username : String" kind="Persistent" fieldName="_username" />
+    </DomainClass>
+    <DomainClass Id="c3d596e6-7b11-42c0-97c4-543ad92a61c5" name="Chat" namespace="Core" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true" identityMechanismMember="Chat_id">
+      <Property Id="d2525307-df47-4e26-9001-9f59fd283f5f" name="Chat_id" type="Int64" label="Chat_id : Int64" kind="Persistent" identity="true" fieldName="_chat_id" />
+      <Property Id="666de1c8-6e63-450c-8a8b-291d2173efeb" name="Message" label="Message : String" kind="Persistent" fieldName="_message" />
+      <Property Id="42b66bcf-b8c1-40ca-aac7-0aeca56f916c" name="Name" label="Name : String" kind="Persistent" fieldName="_name" />
+      <Property Id="90c29e95-1bf3-45e5-b39a-64bd65e3591f" name="Time" type="DateTime" label="Time : DateTime" nullable="true" kind="Persistent" fieldName="_time" />
+    </DomainClass>
+  </Types>
+  <domainContext>
+    <domainModelHasDomainContext Id="f9c66fab-ec69-471b-880a-290a674e2b2e">
+      <domainContainer name="EntitiesModel1" namespace="Core" showPropertiesCompartment="true">
+        <entitySetProperty name="Users" namespace="Core" type="User" label="Users : IQueryable&lt;Core.User&gt;" />
+        <entitySetProperty name="Chats" namespace="Core" type="Chat" label="Chats : IQueryable&lt;Core.Chat&gt;" />
+      </domainContainer>
+    </domainModelHasDomainContext>
+  </domainContext>
+</DomainModel>
