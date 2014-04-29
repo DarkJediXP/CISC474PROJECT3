@@ -57,16 +57,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <OpenAccessDeploy Include="EntitiesModel1.rlinq">
-      <Generator>MetaModelCodeGenerator</Generator>
-      <LastGenOutput>EntitiesModel1.cs</LastGenOutput>
-    </OpenAccessDeploy>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.Config" />
     <None Include="EntitiesModel1.rlinq.diagram">
       <DependentUpon>EntitiesModel1.rlinq</DependentUpon>
     </None>
+    <OpenAccessDeploy Include="EntitiesModel1.rlinq">
+      <Generator>MetaModelCodeGenerator</Generator>
+      <LastGenOutput>EntitiesModel1.cs</LastGenOutput>
+    </OpenAccessDeploy>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

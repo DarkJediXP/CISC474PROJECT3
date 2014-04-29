@@ -36,19 +36,6 @@ namespace Core
 			}
 		}
 		
-		private string _name;
-		public virtual string Name
-		{
-			get
-			{
-				return this._name;
-			}
-			set
-			{
-				this._name = value;
-			}
-		}
-		
 		private string _message;
 		public virtual string Message
 		{
@@ -62,8 +49,21 @@ namespace Core
 			}
 		}
 		
-		private DateTime? _time;
-		public virtual DateTime? Time
+		private string _name;
+		public virtual string Name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				this._name = value;
+			}
+		}
+		
+		private DateTime _time;
+		public virtual DateTime Time
 		{
 			get
 			{

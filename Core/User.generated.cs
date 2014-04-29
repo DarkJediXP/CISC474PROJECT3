@@ -62,8 +62,8 @@ namespace Core
 			}
 		}
 		
-		private bool _active;
-		public virtual bool Active
+		private int _active;
+		public virtual int Active
 		{
 			get
 			{
