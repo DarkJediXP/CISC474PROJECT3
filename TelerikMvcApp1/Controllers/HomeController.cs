@@ -12,7 +12,7 @@ namespace TelerikMvcApp1.Controllers
 {
     public class HomeController : Controller
     {
-       // This is the controller for the index view
+        // This is the controller for the index view
         public ActionResult Index()
         {
             ViewBag.Message = "Welcome to ASP.NET MVC!";
@@ -28,7 +28,7 @@ namespace TelerikMvcApp1.Controllers
         }
 
 
-       
+
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult AuthenticateUser(Core.User userToAdd, string password)
         {
@@ -40,17 +40,17 @@ namespace TelerikMvcApp1.Controllers
             // if thsi is correct it will send the user to the chat view
             if (username == "Admin" && password == "test")
             {
-                return View("Chat");  
+                return View("Chat");
             }
             else
-            {      
+            {
                 //or it will return that the username does not exist in the database
                 // or the password is incorrect
                 res.Content = "No record exists for " + username + " or the password is incorrect";
-                return res;                 
+                return res;
             }
-           
-                    
+
+
         }
 
         public ActionResult AddUser()
