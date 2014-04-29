@@ -1,18 +1,31 @@
-﻿@{
+﻿<!-- Nothing is wrong with my project there is just an error when trying to get access to my database-->
+@{
     ViewBag.Title = "Chat";
 }
 
-<div class="container">
+<!--<div class="container">
         <input type="text" id="message" />
         <input type="button" id="sendmessage" value="Send" />
         <input type="hidden" id="displayname" />
         <ul id="discussion">
         </ul>
+    </div>-->
+
+
+
+<body>
+    <div class="container">
+        <textarea id="discussion" rows="20" cols="50"></textarea>
+        <input type="hidden" id="displayname" />
+        <br />
+        <input type="text" id="message" />
+        <input type="button" id="sendmessage" value="Send" />
     </div>
+</body>
 
 
 <script type="text/javascript">
-        $(function () {
+         $(function () {
             // Declare a proxy to reference the hub. 
             var chat = $.connection.chatHub;
             // Create a function that the hub can call to broadcast messages.
@@ -21,8 +34,9 @@
                 var encodedName = $('<div />').text(name).html();
                 var encodedMsg = $('<div />').text(message).html();
                 // Add the message to the page. 
-                $('#discussion').append('<li><strong>' + encodedName
-                    + '</strong>:&nbsp;&nbsp;' + encodedMsg + '</li>');
+                //$('#discussion').append('<li><strong>' + encodedName
+                //   + '</strong>:&nbsp;&nbsp;' + encodedMsg + '</li>');
+                $('#discussion').val($('#discussion').val() + encodedName + ": " + encodedMsg + "\n");
             };
             // Get the user name and store it to prepend to messages.
             $('#displayname').val(prompt('Enter your name:', ''));
@@ -30,9 +44,10 @@
             $('#message').focus();
             // Start the connection.
             $.connection.hub.start().done(function () {
-                $('#sendmessage').click(function () {
+                $('#sendmessage').click(function () { // on click listner for the send message button 
                     // Call the Send method on the hub. 
                     chat.server.send($('#displayname').val(), $('#message').val());
+                    console.log($('#message').val());
                     // Clear text box and reset focus for next comment. 
                     $('#message').val('').focus();
                 });

@@ -563,7 +563,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\SignUp.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Scripts\kendo\2014.1.415\jquery.min.map" />
     <Content Include="Scripts\kendo\2014.1.415\kendo.all.min.js.map" />

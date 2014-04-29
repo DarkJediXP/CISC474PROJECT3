@@ -24,7 +24,7 @@ namespace Core
 {
 	public partial class EntitiesModel1 : OpenAccessContext, IEntitiesModel1UnitOfWork
 	{
-		private static string connectionStringName = @"CISC474Connection";
+		private static string connectionStringName = @"CISXC474Connection";
 			
 		private static BackendConfiguration backend = GetBackendConfiguration();
 				
